@@ -29,10 +29,7 @@ exports.getStores = async (req, res, next) => {
 exports.addStore = async (req, res, next) => {
     try {
         const store = await Store.create(req.body);
-        return res.status(200).json({
-            success: true,
-            data: store
-        })
+        return res.status(200).json(store)
         // await Store.create(req.body)
     } catch (err) {
         console.error(err.message);
