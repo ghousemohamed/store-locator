@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const {getStores, addStore} = require('../controllers/stores');
 
-router.get('/', (req, res) => {
-    res.status(200).json({
-        success: true, 
-        msg: "Connected to the backend server"
-    })
-})
+router.route('/').get(getStores).post(addStore);
 
 module.exports = router;
